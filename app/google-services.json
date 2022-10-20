@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "59309847044",
+    "firebase_url": "https://adoptmapet-a3a55-default-rtdb.firebaseio.com",
+    "project_id": "adoptmapet-a3a55",
+    "storage_bucket": "adoptmapet-a3a55.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:59309847044:android:4d114ad781055b824bfb51",
+        "android_client_info": {
+          "package_name": "com.example.adoptmapet"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "59309847044-jtdf4dehgfetdqhh6n4o3tscltbr8q6i.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyC5MCfqdOXMv-S1os29pI1E4SiwtiIvWJU"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "59309847044-jtdf4dehgfetdqhh6n4o3tscltbr8q6i.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

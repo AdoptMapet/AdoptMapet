@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".SetupActivity">
+
+    <de.hdodenhof.circleimageview.CircleImageView
+        android:id="@+id/setup_profile_image"
+        android:layout_width="162dp"
+        android:layout_height="155dp"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginStart="103dp"
+        android:layout_marginTop="32dp"
+        android:src="@drawable/profile" />
+
+    <EditText
+        android:id="@+id/setup_username"
+        android:layout_width="372dp"
+        android:layout_height="60dp"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginStart="23dp"
+        android:layout_marginTop="283dp"
+        android:hint="Username"
+        android:ems="10"
+        android:inputType="textMultiLine" />
+
+    <EditText
+        android:id="@+id/setup_fullname"
+        android:layout_width="372dp"
+        android:layout_height="60dp"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginStart="22dp"
+        android:layout_marginTop="351dp"
+        android:hint="Fullname"
+        android:ems="10"
+        android:inputType="textMultiLine" />
+
+    <EditText
+        android:id="@+id/setup_country_name"
+        android:layout_width="372dp"
+        android:layout_height="60dp"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginStart="22dp"
+        android:layout_marginTop="422dp"
+        android:hint="Country"
+        android:ems="10"
+        android:inputType="textMultiLine" />
+
+    <Button
+        android:id="@+id/setup_information_button"
+        android:layout_width="372dp"
+        android:layout_height="60dp"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginStart="21dp"
+        android:layout_marginTop="502dp"
+        android:inputType="textMultiLine"
+        android:text="Save" />
+
+    <ProgressBar
+        android:id="@+id/progressBar"
+        android:visibility="invisible"
+        style="?android:attr/progressBarStyle"
+        android:layout_width="82dp"
+        android:layout_height="77dp"
+        android:layout_alignBottom="@+id/setup_profile_image"
+        android:layout_marginStart="140dp"/>
+
+
+</RelativeLayout>
