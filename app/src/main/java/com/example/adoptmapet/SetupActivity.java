@@ -21,6 +21,7 @@ import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.gms.tasks.Task;
+import com.google.android.material.textfield.TextInputEditText;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
@@ -35,7 +36,7 @@ import de.hdodenhof.circleimageview.CircleImageView;
 
 public class SetupActivity extends AppCompatActivity {
 
-    private EditText UserName, FullName, CountryName;
+    private TextInputEditText fullName, age, sex;
     private Button SaveInformationButton;
     private CircleImageView ProfileImage;
 
@@ -62,9 +63,9 @@ public class SetupActivity extends AppCompatActivity {
         UserRef = FirebaseDatabase.getInstance().getReference().child("Users").child(currentUserID);
         UserProfileImageRef = FirebaseStorage.getInstance().getReference().child("Profile Images");
 
-        UserName = findViewById(R.id.setup_username);
-        FullName = findViewById(R.id.setup_fullname);
-        CountryName = findViewById(R.id.setup_country_name);
+        fullName = findViewById(R.id.setup_fullname);
+        age = findViewById(R.id.setup_age);
+        sex = findViewById(R.id.setup_sex);
         SaveInformationButton = findViewById(R.id.setup_information_button);
         ProfileImage = findViewById(R.id.setup_profile_image);
 
@@ -80,12 +81,11 @@ public class SetupActivity extends AppCompatActivity {
                     handler.postDelayed(new Runnable() {
                         @Override
                         public void run() {
-                            // Do something after 5s = 5000ms
+                            // Do something after 8s = 8000ms
                             progressBar.setVisibility(View.INVISIBLE);
                             SaveAccountSetupInformation();
                         }
                     }, 8000);
-
 
 
                 }else {
@@ -106,9 +106,6 @@ public class SetupActivity extends AppCompatActivity {
         });
 
     }
-
-
-
 
 
     @Override
@@ -155,6 +152,7 @@ public class SetupActivity extends AppCompatActivity {
 
 
 
+
                     Task<Uri> urlTask = taskSnapshot.getStorage().getDownloadUrl();
                     while (!urlTask.isSuccessful());
                     Uri downloadUrl = urlTask.getResult();
@@ -182,30 +180,23 @@ public class SetupActivity extends AppCompatActivity {
 
     private void SaveAccountSetupInformation() {
 
-        String username = UserName.getText().toString();
-        String fullname = FullName.getText().toString();
-        String country = CountryName.getText().toString();
+        String strFullname = fullName.getText().toString();
+        String strAge = age.getText().toString();
+        String strSex = sex.getText().toString();
 
-        if(TextUtils.isEmpty(username)){
+        if(TextUtils.isEmpty(strFullname)){
             Toast.makeText(getApplicationContext(), "Please write username", Toast.LENGTH_SHORT).show();
-        } else if(TextUtils.isEmpty(fullname)){
+        } else if(TextUtils.isEmpty(strAge)){
             Toast.makeText(getApplicationContext(), "Please write fullname", Toast.LENGTH_SHORT).show();
-        } else if(TextUtils.isEmpty(country)){
+        } else if(TextUtils.isEmpty(strSex)){
             Toast.makeText(getApplicationContext(), "Please write country", Toast.LENGTH_SHORT).show();
         }else {
 
             HashMap usermap = new HashMap();
-            usermap.put("username", username);
-            usermap.put("fullname", fullname);
-            usermap.put("country", country);
-
-
+            usermap.put("fullname", strFullname);
+            usermap.put("age", strAge);
+            usermap.put("sex", strSex);
             usermap.put("profileimage", imageLink);
-
-            usermap.put("status", "Hey there, i am using Poster Social network , Gio Coser");
-            usermap.put("gender", "none");
-            usermap.put("dob","none" );
-            usermap.put("relationshipstatus", "none");
 
             UserRef.updateChildren(usermap).addOnCompleteListener(new OnCompleteListener() {
                 @Override

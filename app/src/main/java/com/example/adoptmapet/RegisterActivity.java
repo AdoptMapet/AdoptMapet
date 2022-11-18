@@ -13,15 +13,17 @@ import android.widget.Toast;
 
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
+import com.google.android.material.textfield.TextInputEditText;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 
 public class RegisterActivity extends AppCompatActivity {
 
-    private EditText UserEmail, UserPassword, UserConfirmationPassword;
+    private TextInputEditText UserEmail, UserPassword, UserConfirmationPassword;
     private Button CreateAccountButton;
 
     private FirebaseAuth mAuth;
+
 
 
 
@@ -32,8 +34,6 @@ public class RegisterActivity extends AppCompatActivity {
 
 
         mAuth = FirebaseAuth.getInstance();
-
-
 
         UserEmail =  findViewById(R.id.register_email);
         UserPassword =  findViewById(R.id.register_password);

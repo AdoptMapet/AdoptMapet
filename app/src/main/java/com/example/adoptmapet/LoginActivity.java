@@ -14,6 +14,7 @@ import android.widget.Toast;
 
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
+import com.google.android.material.textfield.TextInputEditText;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
@@ -21,8 +22,8 @@ import com.google.firebase.auth.FirebaseUser;
 public class LoginActivity extends AppCompatActivity {
 
     private Button loginBtn;
-    private EditText UserEmail, UserPassword;
-    private TextView NeedNewAccountLink;
+    private TextInputEditText UserEmail, UserPassword;
+    private TextView NeedNewAccountLink, forgotPassword;
 
     private FirebaseAuth mAuth;
 
@@ -38,6 +39,7 @@ public class LoginActivity extends AppCompatActivity {
         UserEmail = findViewById(R.id.login_email);
         UserPassword = findViewById(R.id.login_password);
         loginBtn = findViewById(R.id.loginBtn);
+        forgotPassword = findViewById(R.id.forgotPassword);
 
         NeedNewAccountLink.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -47,7 +49,6 @@ public class LoginActivity extends AppCompatActivity {
             }
         });
 
-
         loginBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -56,6 +57,14 @@ public class LoginActivity extends AppCompatActivity {
 
             }
         });
+
+        forgotPassword.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                SendUserToForgotPasswordActivity();
+            }
+        });
+
 
     }
 
@@ -74,8 +83,8 @@ public class LoginActivity extends AppCompatActivity {
 
     private void AllowingUserToLogin() {
 
-        String email = UserEmail.getText().toString();
-        String password = UserPassword.getText().toString();
+        String email = UserEmail.getText().toString().trim();
+        String password = UserPassword.getText().toString().trim();
 
         if(TextUtils.isEmpty(email)){
             Toast.makeText(getApplicationContext(), "Please write your email", Toast.LENGTH_SHORT).show();
@@ -109,5 +118,11 @@ public class LoginActivity extends AppCompatActivity {
         Intent registerIntent = new Intent(getApplicationContext(), RegisterActivity.class);
         startActivity(registerIntent);
     }
+
+    private void SendUserToForgotPasswordActivity() {
+        Intent forgotPasswordIntent = new Intent(getApplicationContext(), ForgotPasswordActivity.class);
+        startActivity(forgotPasswordIntent);
+    }
+
 
 }

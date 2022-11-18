@@ -17,9 +17,7 @@
         android:title="Firends"
         android:icon="@drawable/friends"/>
 
-    <item android:id="@+id/nav_find_friends"
-        android:title="Find friends"
-        android:icon="@drawable/find_people"/>
+
 
     <item android:id="@+id/nav_message"
         android:title="Message"

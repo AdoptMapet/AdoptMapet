@@ -34,6 +34,7 @@ private ArrayList<Posts> postsArrayList;
 
     private DatabaseReference PostsRef;
 
+
     public RecyclerAdapter(Context pConext, ArrayList<Posts> postsArrayList) {
         this.pConext = pConext;
         this.postsArrayList = postsArrayList;
@@ -105,11 +106,8 @@ private ArrayList<Posts> postsArrayList;
     ImageView postimage;
     TextView time,date, description, fullname;
 
-
-
     public ViewHolder(@NonNull View itemView) {
         super(itemView);
-
 
         profileimage = itemView.findViewById(R.id.post_profile_image);
         postimage = itemView.findViewById(R.id.post_image);
@@ -117,8 +115,6 @@ private ArrayList<Posts> postsArrayList;
         time = itemView.findViewById(R.id.post_time);
         description = itemView.findViewById(R.id.post_description);
         fullname = itemView.findViewById(R.id.post_full_name);
-
-
 
     }
 }

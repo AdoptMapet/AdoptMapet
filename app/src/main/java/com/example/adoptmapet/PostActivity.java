@@ -169,7 +169,10 @@ public class PostActivity extends AppCompatActivity {
                 if (snapshot.exists()){
                     //geting data from firebase
                     String userFullName = snapshot.child("fullname").getValue().toString();
+
                     String userProfileImage = snapshot.child("profileimage").getValue().toString();
+
+
 
                     HashMap postMap = new HashMap();
                     postMap.put("uid", current_user_id);

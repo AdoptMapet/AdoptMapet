@@ -200,7 +200,7 @@ public class MainActivity extends AppCompatActivity {
                 for (DataSnapshot dataSnapshot: snapshot.getChildren() ){
 
                         //itong mga post value  ay mai babato sa RecyclerAdapter.java
-                    Posts posts = new Posts();
+                         Posts posts = new Posts();
                          posts.setUid(dataSnapshot.child("uid").getValue().toString());
                          posts.setDate(dataSnapshot.child("date").getValue().toString());
                          posts.setTime(dataSnapshot.child("time").getValue().toString());
@@ -340,49 +340,23 @@ public class MainActivity extends AppCompatActivity {
             case R.id.nav_friends:
                 Toast.makeText(getApplicationContext(), "Friends", Toast.LENGTH_SHORT).show();
                 break;
-            case R.id.nav_find_friends:
-                Toast.makeText(getApplicationContext(), "Find friends", Toast.LENGTH_SHORT).show();
-                break;
             case R.id.nav_message:
                 Toast.makeText(getApplicationContext(), "Message", Toast.LENGTH_SHORT).show();
                 break;
             case R.id.nav_setting:
-
-
-
-
-                UsersRef.child(currentUserID).addValueEventListener(new ValueEventListener() {
-                    @Override
-                    public void onDataChange(DataSnapshot dataSnapshot)
-                    {
-                        if(dataSnapshot.exists())
-                        {
-                            if(dataSnapshot.hasChild("username"))
-                            {
-                                text = dataSnapshot.child("username").getValue().toString();
-                                Toast.makeText(getApplicationContext(), "Username retrieved : " + text, Toast.LENGTH_SHORT).show();
-                            }
-
-                            else
-                            {
-                                Toast.makeText(MainActivity.this, "Wala naman...", Toast.LENGTH_SHORT).show();
-                            }
-                        }
-                    }
-
-                    @Override
-                    public void onCancelled(DatabaseError databaseError) {
-
-                    }
-                });
-
-
+                SendUserToSettingsActivity();
                 break;
+
             case R.id.nav_logout:
                 mAuth.signOut();
                 SendUserToLoginActivity();
                 break;
         }
+    }
+
+    private void SendUserToSettingsActivity() {
+        Intent SettingsIntent = new Intent(MainActivity.this, SettingsActivity.class);
+        startActivity(SettingsIntent);
     }
 
 }
